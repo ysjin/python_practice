@@ -1,21 +1,18 @@
-#!/usr/bin/python3
 
+def fibonacci (num):
+    fib = [0, 1]
+    for i in range(2, num+1):
+        fib[i%2] = fib[0] + fib[1]
 
-class Fibonacci():
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
+    if (num%2)==0 :
+        return fib[0]
+    else:
+        return fib[1]
 
-    def series(self):
-        while(True):
-            yield(self.b)
-            self.a, self.b = self.b, self.a + self.b
 
 def main():
-    f = Fibonacci(0, 1)
-    for r in f.series():
-        if r > 100:
-            break
-        print(r, end=' ')
+    print( fibonacci(7) )
+
+
 
 if __name__ == "__main__": main()

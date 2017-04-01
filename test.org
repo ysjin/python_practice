@@ -1,0 +1,76 @@
+* test org
+
+
+
+\[
+e^{i\pi} = -1
+\]
+
+\[
+\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+\]
+
+#+begin_src python
+x = 12
+print("hello")
+#+end_src
+
+#+RESULTS:
+: None
+
+#+begin_src python :session
+def foo(x):
+  if x>0:
+    return x+1
+  else:
+    return x-1
+
+foo(1)
+#+end_src
+
+#+RESULTS:
+: 2
+
+
+
+#+begin_src python :results file
+import matplotlib, numpy
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(4,2))
+x=numpy.linspace(-15,15)
+plt.plot(numpy.sin(x)/x)
+fig.tight_layout()
+plt.savefig('python-matplot-fig.png')
+return 'python-matplot-fig.png' # return filename to org-mode
+#+end_src
+
+#+RESULTS:
+[[file:python-matplot-fig.png]]
+
+#+header: :exports results
+#+begin_src C++ :var somedata=somedata
+  #include "stdlib.h"
+  int main()
+  {
+    for (int i=0; i<somedata_rows; i++) {
+      printf ("%2d ", i);
+      for (int j=0; j<somedata_cols; j++) {
+        const char* cell = somedata[i][j];
+        printf ("%5s %5g ", cell, 1000*atof(cell));
+      }
+      printf("\n");
+    }
+    return 0;
+  }
+#+end_src
+
+#+header: :var mystring="Sunday" :var myint=145 :var mydouble=3.14
+#+BEGIN_SRC C
+  printf ("mystring %s\n", mystring);
+  printf ("myint    %d\n", myint);
+  printf ("mydouble %g\n", mydouble);
+#+END_SRC
+
+#+RESULTS:
+
